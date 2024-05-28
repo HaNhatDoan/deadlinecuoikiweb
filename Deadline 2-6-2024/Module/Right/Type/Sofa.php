@@ -1,159 +1,53 @@
-
-    <div class="head-right"><h3>SOFA</h3></div>
-    <div class="right-content-sanpham">
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
+<?php
+$sosanpham = !empty($_GET['perpage']) ? ($_GET['perpage']) : 12;
+$trangso = !empty($_GET['page']) ? ($_GET['page']) : 1;
+$offset = ($trangso - 1) * $sosanpham;
+$mysql = "SELECT *FROM chitietsanpham WHERE loai_sp like 'Sofa' LIMIT $sosanpham OFFSET $offset";
+$result = mysqli_query($conn, $mysql);
+$total = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE loai_sp like 'Sofa' ");
+$numrow = mysqli_num_rows($total);
+$sotrang = ceil($numrow / $sosanpham);
+?>
+<div class="head-right">
+    <h3>SOFA</h3>
+    <form action="" method="post">
+        <div class="right-content-sanpham">
+            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <div class="sanpham-one">
+                    <img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" />
+                    <h1><?= $row['ten_sp'] ?></h1>
+                    <div class="pri-sanpham">
+                        <div class="cost-sanpham"><?= $row['gia'] ?><sup>đ</sup></div>
+                    </div>
+                    <div class="buy-sanpham">
+                        <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
+                        <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/Sofa-Coastal-GP-vai-vang-rs-3-600x400.jpg" alt="" />
-            <h1>Sofa Coastal góc phải vải vàng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">38,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">44,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
+    </form>
+</div>
+<div class="sanpham">
+    <div class="pagination">
+        <?php if ($trangso > 2) { ?>
+            <a href="index.php?xem=Sofa&perpage=<?= $sosanpham ?>&page=<?= 1 ?>">FIRST</a> <?php } ?>
+        <?php if ($trangso < $sotrang + 1) { ?>
+            <?php $nextpage = $trangso - 1; ?>
+            <a href="index.php?xem=Sofa&perpage=<?= $sosanpham ?>&page=<?= $nextpage ?>">PREV</a> <?php } ?>
+        <?php for ($num = 1; $num <= $sotrang; $num++) { ?>
+            <?php if ($num != $trangso) { ?>
+                <?php if ($num > $trangso - 2 and $num < $trangso + 2) { ?>
+                    <a href="index.php?xem=Sofa&perpage=<?= $sosanpham ?>&page=<?= $num ?>"><?= $num ?></a>
+                <?php } ?>
+            <?php } else { ?>
+                <strong style="background-color: black; color:white;padding:20px;"><?= $num ?></strong>
+            <?php } ?>
+        <?php } ?>
+        <?php if ($trangso < $sotrang) { ?>
+            <?php $nextpage = $trangso + 1; ?>
+            <a href="index.php?xem=Sofa&perpage=<?= $sosanpham ?>&page=<?= $nextpage ?>">NEXT</a> <?php } ?>
+        <?php if ($trangso < $sotrang - 1) { ?>
+            <a href="index.php?xem=Sofa&perpage=<?= $sosanpham ?>&page=<?= $sotrang ?>">LAST</a> <?php } ?>
     </div>
-    <div class="sanpham">
-        <div class="pagination">
-          <a href="#">&laquo;</a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">&raquo;</a>
-        </div>
-      </div>
+</div>
